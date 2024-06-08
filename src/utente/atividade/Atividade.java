@@ -1,14 +1,18 @@
-package utente;
+package utente.atividade;
 
-import java.time.LocalTime;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Atividade {
     private String tipoAtividade;
-    private LocalTime inicio;
-    private LocalTime fim;
+    private LocalDate inicio;
+    private LocalDate fim;
 
-    public Atividade(String tipoAtividade, LocalTime inicio, LocalTime fim) {
+    public Atividade() {
+
+    }
+
+    public Atividade(String tipoAtividade, LocalDate inicio, LocalDate fim) {
         this.tipoAtividade = tipoAtividade;
         this.inicio = inicio;
         this.fim = fim;
@@ -22,19 +26,19 @@ public class Atividade {
         this.tipoAtividade = tipoAtividade;
     }
 
-    public LocalTime getInicio() {
+    public LocalDate getInicio() {
         return inicio;
     }
 
-    public void setInicio(LocalTime inicio) {
+    public void setInicio(LocalDate inicio) {
         this.inicio = inicio;
     }
 
-    public LocalTime getFim() {
+    public LocalDate getFim() {
         return fim;
     }
 
-    public void setFim(LocalTime fim) {
+    public void setFim(LocalDate fim) {
         this.fim = fim;
     }
 

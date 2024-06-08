@@ -1,6 +1,9 @@
 package utente;
 
+import utente.vicio.Vicio;
+
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 public class Utente {
@@ -10,16 +13,20 @@ public class Utente {
     private String genero;
     private int numUtente;
     private int numTelefone;
-    private String vicio;
+    private List<Vicio> vicios;
 
-    public Utente(LocalDate dataDeNascimento, String nome, double altura, String genero, int numUtente, int numTelefone, String vicio) {
+    public Utente() {
+
+    }
+
+    public Utente(LocalDate dataDeNascimento, String nome, double altura, String genero, int numUtente, int numTelefone, List<Vicio> vicios) {
         this.dataDeNascimento = dataDeNascimento;
         this.nome = nome;
         this.altura = altura;
         this.genero = genero;
         this.numUtente = numUtente;
         this.numTelefone = numTelefone;
-        this.vicio = vicio;
+        this.vicios = vicios;
     }
 
     public LocalDate getDataDeNascimento() {
@@ -70,24 +77,24 @@ public class Utente {
         this.numTelefone = numTelefone;
     }
 
-    public String getVicio() {
-        return vicio;
+    public List<Vicio> getVicios() {
+        return vicios;
     }
 
-    public void setVicio(String vicio) {
-        this.vicio = vicio;
+    public void setVicios(List<Vicio> vicios) {
+        this.vicios = vicios;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Utente utente)) return false;
-        return Double.compare(altura, utente.altura) == 0 && numUtente == utente.numUtente && numTelefone == utente.numTelefone && Objects.equals(dataDeNascimento, utente.dataDeNascimento) && Objects.equals(nome, utente.nome) && Objects.equals(genero, utente.genero) && Objects.equals(vicio, utente.vicio);
+        return Double.compare(altura, utente.altura) == 0 && numUtente == utente.numUtente && numTelefone == utente.numTelefone && Objects.equals(dataDeNascimento, utente.dataDeNascimento) && Objects.equals(nome, utente.nome) && Objects.equals(genero, utente.genero) && Objects.equals(vicios, utente.vicios);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(dataDeNascimento, nome, altura, genero, numUtente, numTelefone, vicio);
+        return Objects.hash(dataDeNascimento, nome, altura, genero, numUtente, numTelefone, vicios);
     }
 
     @Override
@@ -99,7 +106,7 @@ public class Utente {
                 ", genero='" + genero + '\'' +
                 ", numUtente=" + numUtente +
                 ", numTelefone=" + numTelefone +
-                ", vicio='" + vicio + '\'' +
+                ", vicios=" + vicios +
                 '}';
     }
 }

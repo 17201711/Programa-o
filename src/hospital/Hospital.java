@@ -76,7 +76,7 @@ public class Hospital {
                 ", numTelefone=" + numTelefone +
                 ", horario='" + horario + '\'' +
                 ", website='" + website + '\'' +
-                ", tipo='" + tipo + '\'' +
+                ", hospital.tipo='" + tipo + '\'' +
                 '}';
     }
 }
