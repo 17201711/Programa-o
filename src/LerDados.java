@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class LeituraDados {
+public class LerDados {
 
     private Scanner scanner = new Scanner(System.in);
 
@@ -98,7 +98,7 @@ public class LeituraDados {
     }
 
     public String lerVicio() {
-        System.out.println("Inserir hospital.tipo utente.vicio");
+        System.out.println("Inserir vicio");
         String vicio = scanner.next();
 
         return vicio;

@@ -14,8 +14,8 @@ public class GestaoAtividade {
         List<Atividade> atividadePedida = new ArrayList<>();
 
         for(Atividade atividadeExistente: atividades) {
-            if(atividadeExistente.getInicio().toString().equals(atividade.getInicio().toString())
-                    && atividadeExistente.getFim().toString().equals(atividade.getFim().toString())) {
+            if(atividadeExistente.getInicio().isAfter(atividade.getInicio() )
+                    && atividadeExistente.getFim().isBefore(atividade.getFim())) {
                 atividadePedida.add(atividadeExistente);
             }
         }

@@ -9,11 +9,11 @@ public class GestaoVicio {
 
     public List<String> consultarPoliticasVicio(String vicio) {
         for (Vicio vicioExistente: vicios) {
-            if(vicioExistente.getNomeVicio().toString().equals(vicio)) {
+            if(vicioExistente.getNomeVicio().equals(vicio)) {
                 return vicioExistente.getPoliticasRecuperacao();
             }
         }
 
-        return null;
+        return new ArrayList<>();
     }
 }

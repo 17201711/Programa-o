@@ -7,15 +7,15 @@ public class Autenticacao {
 
     private GestaoUtentes gestaoUtentes = new GestaoUtentes();
 
-    public boolean login(Utente utente) {
+    public void login(Utente utente) {
         for(Utente utenteExistente: gestaoUtentes.getUtentes()) {
             if ((utenteExistente.getNome().equals(utente.getNome()))
                     || (utenteExistente.getNumUtente() == utente.getNumUtente())
                     || (utenteExistente.getNumTelefone() == utente.getNumTelefone())) {
-                return false;
+                System.out.println("Login falhou!");
             }
         }
-        return true;
+        System.out.println("Login com sucesso!");
     }
 
     public void registo(Utente utente) {

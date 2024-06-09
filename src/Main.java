@@ -1,18 +1,13 @@
 import hospital.GestaoHospitais;
-import hospital.Hospital;
 import utente.GestaoUtentes;
-import utente.Utente;
-import utente.atividade.Atividade;
 import utente.atividade.GestaoAtividade;
 import utente.vicio.GestaoVicio;
-import utente.vicio.Vicio;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-    private static LeituraDados leituraDados = new LeituraDados();
+    private static LerDados lerDados = new LerDados();
 
     public static void main(String[] args) {
         Autenticacao gestaoAutenticacao = new Autenticacao();
@@ -24,14 +19,14 @@ public class Main {
         int opcaoSelecionada = menu();
         while(opcaoSelecionada != 9) {
             switch(opcaoSelecionada) {
-                case 1: gestaoAutenticacao.registo(leituraDados.registo()); break;
-                case 2: gestaoAutenticacao.login(leituraDados.login()); break;
-                case 3: imprimirHospitaisDaConsulta(gestaoHospitais.consultar(leituraDados.consultarHospitais())); break;
-                case 4: gestaoAtividade.registarAtividade(leituraDados.registarAtividade()); break;
-                case 5: imprimirAtividadesConsultadas(gestaoAtividade.consultarAtividades(leituraDados.consultarAtividades())); break;
-                case 6: imprimirPoliticasVicio(gestaoVicio.consultarPoliticasVicio(leituraDados.lerVicio())); break;
-                case 7: imprimirUtentes(gestaoUtentes.getUtentes()); break;
-                case 8: gestaoHospitais.adicionarHospital(leituraDados.registarHospital()); break;
+                case 1: gestaoAutenticacao.registo(lerDados.registo()); break;
+                case 2: gestaoAutenticacao.login(lerDados.login()); break;
+                case 3: ImprimirDados.imprimirHospitaisDaConsulta(gestaoHospitais.consultar(lerDados.consultarHospitais())); break;
+                case 4: gestaoAtividade.registarAtividade(lerDados.registarAtividade()); break;
+                case 5: ImprimirDados.imprimirAtividadesConsultadas(gestaoAtividade.consultarAtividades(lerDados.consultarAtividades())); break;
+                case 6: ImprimirDados.imprimirPoliticasVicio(gestaoVicio.consultarPoliticasVicio(lerDados.lerVicio())); break;
+                case 7: ImprimirDados.imprimirUtentes(gestaoUtentes.getUtentes()); break;
+                case 8: gestaoHospitais.adicionarHospital(lerDados.registarHospital()); break;
                 case 9: System.exit(0);
                 default: System.out.println("Opcao invalida. Tente novamente"); break;
             }
@@ -57,50 +52,5 @@ public class Main {
         System.out.println("9 - Sair");
 
         return input.nextInt();
-    }
-
-    private static void imprimirHospitaisDaConsulta(List<Hospital> hospitais) {
-        for(Hospital hospital: hospitais) {
-            System.out.println(hospital.getLocalidade());
-            System.out.println(hospital.getNumTelefone());
-            System.out.println(hospital.getHorario());
-            System.out.println(hospital.getWebsite());
-            System.out.println(hospital.getTipo());
-        }
-    }
-
-    private static void imprimirAtividadesConsultadas(List<Atividade> atividades) {
-        System.out.println("-------------------------\n");
-
-        for(Atividade atividade: atividades) {
-            System.out.println(atividade.getTipoAtividade());
-            System.out.println(atividade.getInicio().toString());
-            System.out.println(atividade.getFim().toString());
-        }
-    }
-
-    private static void imprimirPoliticasVicio(List<String> politicas) {
-        System.out.println("-------------------------\n");
-
-        for(String politica: politicas) {
-            System.out.println(politica);
-        }
-    }
-
-    private static void imprimirUtentes(List<Utente> utentes) {
-        System.out.println("-------------------------\n");
-
-        for(Utente utente: utentes) {
-            System.out.println(utente.getDataDeNascimento().toString());
-            System.out.println(utente.getNome());
-            System.out.println(utente.getAltura());
-            System.out.println(utente.getGenero());
-            System.out.println(utente.getNumUtente());
-            System.out.println(utente.getNumTelefone());
-            for(Vicio vicio: utente.getVicios()) {
-                System.out.println(vicio.getNomeVicio());
-                imprimirPoliticasVicio(vicio.getPoliticasRecuperacao());
-            }
-        }
     }
 }
